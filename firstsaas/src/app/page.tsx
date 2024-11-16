@@ -80,32 +80,7 @@ export default function Home() {
     },
   ]
 
-  const features: Feature[] = [
-    {
-      id: 1,
-      title: "Responsive Design",
-      description: "Implemented responsive design using Tailwind CSS and learned about mobile-first approach",
-      techUsed: ["Tailwind CSS", "Next.js"],
-      dateAdded: "Nov 5, 2024",
-      status: "completed"
-    },
-    {
-      id: 2,
-      title: "Dark Mode Toggle",
-      description: "Added sleek dark mode with system sync, smooth transitions, and persistent user preference",
-      techUsed: ["Next.js", "Tailwind CSS", "next-themes"],
-      dateAdded: "Nov 17, 2024",
-      status: "completed"
-    },
-    {
-      id: 3,
-      title: "Code Snippet Sharing",
-      description: "Feature to share and display code snippets with syntax highlighting and copy functionality",
-      techUsed: ["React", "Prism.js", "Supabase"],
-      dateAdded: "Coming Soon",
-      status: "planned"
-    }
-  ]
+
 
   const technologies: Technology[] = [
     {
@@ -158,7 +133,88 @@ export default function Home() {
       learningStatus: 'learning'
     }
   ]
-
+  const features: Feature[] = [
+    {
+      id: 1,
+      title: "Responsive Design",
+      description: "Implemented responsive design using Tailwind CSS and learned about mobile-first approach",
+      techUsed: ["Tailwind CSS", "Next.js"],
+      dateAdded: "Nov 16, 2024",
+      status: "completed"
+    },
+    {
+      id: 2,
+      title: "Dark Mode Toggle",
+      description: "Adding a sleek dark mode toggle with smooth transitions and persistent user preference",
+      techUsed: ["Next.js", "Tailwind CSS", "LocalStorage"],
+      dateAdded: "Coming Soon",
+      status: "completed"
+    },
+    {
+      id: 3,
+      title: "Code Snippet Sharing",
+      description: "Feature to share and display code snippets with syntax highlighting and copy functionality",
+      techUsed: ["React", "Prism.js", "Supabase"],
+      dateAdded: "Coming Soon",
+      status: "planned"
+    },
+    {
+      id: 4,
+      title: "Learning Timer",
+      description: "Simple Pomodoro timer to track coding sessions with daily stats and streaks",
+      techUsed: ["React", "LocalStorage", "Chart.js"],
+      dateAdded: "Coming Soon",
+      status: "in-progress"
+    },
+    {
+      id: 5,
+      title: "Resource Collection",
+      description: "Curated list of learning resources with filtering and bookmarking capabilities",
+      techUsed: ["Next.js", "Supabase", "React"],
+      dateAdded: "Coming Soon",
+      status: "in-progress"
+    },
+    {
+      id: 6,
+      title: "Quick Notes & ToDo",
+      description: "Simple markdown notes and todo list for tracking learning goals",
+      techUsed: ["React", "Markdown-it", "Supabase"],
+      dateAdded: "Coming Soon",
+      status: "planned"
+    },
+    {
+      id: 7,
+      title: "Progress Timeline",
+      description: "Interactive timeline showing learning milestones with animations",
+      techUsed: ["Framer Motion", "React", "Tailwind CSS"],
+      dateAdded: "Coming Soon",
+      status: "planned"
+    },
+    {
+      id: 8,
+      title: "GitHub Integration",
+      description: "Display GitHub activity and repository stats in a visually appealing way",
+      techUsed: ["GitHub API", "React", "Chart.js"],
+      dateAdded: "Coming Soon",
+      status: "planned"
+    },
+    {
+      id: 9,
+      title: "Achievement System",
+      description: "Fun badges and achievements for completing learning goals and consistency",
+      techUsed: ["Supabase", "React", "LocalStorage"],
+      dateAdded: "Coming Soon",
+      status: "planned"
+    },
+    {
+      id: 10,
+      title: "Challenge Generator",
+      description: "Random coding challenge generator with difficulty levels and solutions",
+      techUsed: ["React", "Supabase", "Markdown"],
+      dateAdded: "Coming Soon",
+      status: "planned"
+    }
+]
   const projects: Project[] = [
     {
       id: 1,
@@ -396,6 +452,56 @@ export default function Home() {
                   </div>
                   <div className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                     Proficiency: {tech.proficiency}%
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Feature Showcase */}
+        <section className="mt-20">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="flex items-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900">
+                Feature Roadmap
+              </h2>
+              <div className="ml-4 h-[2px] flex-1 bg-gradient-to-r from-gray-200 to-transparent" />
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                >
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="font-semibold text-lg text-gray-900">{feature.title}</h3>
+                    <span className={`
+                      px-3 py-1 rounded-full text-xs font-medium
+                      ${feature.status === 'completed' ? 'bg-green-100 text-green-800' : ''}
+                      ${feature.status === 'in-progress' ? 'bg-yellow-100 text-yellow-800' : ''}
+                      ${feature.status === 'planned' ? 'bg-blue-100 text-blue-800' : ''}
+                    `}>
+                      {feature.status}
+                    </span>
+                  </div>
+                  <p className="text-gray-600 mb-4">{feature.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {feature.techUsed.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-sm"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-4 text-sm text-gray-400">
+                    Added: {feature.dateAdded}
                   </div>
                 </motion.div>
               ))}
