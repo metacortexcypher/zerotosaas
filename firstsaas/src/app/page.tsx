@@ -189,7 +189,7 @@ export default function Home() {
     {
       id: 2,
       title: "Is My Indie Idea Taken?",
-      tagline: "AI-powered indie market research and idea validation tool",
+      tagline: "Indie market research and idea validation tool",
       description: "A tool that helps indie hackers validate their ideas by finding similar products, checking domain availability, and providing differentiation strategies using AI and data scraping.",
       category: 'Tool',
       status: 'in-progress',
