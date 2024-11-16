@@ -147,7 +147,7 @@ export default function Home() {
       title: "Dark Mode Toggle",
       description: "Adding a sleek dark mode toggle with smooth transitions and persistent user preference",
       techUsed: ["Next.js", "Tailwind CSS", "LocalStorage"],
-      dateAdded: "Coming Soon",
+      dateAdded: "Nov 16, 2024",
       status: "completed"
     },
     {
